@@ -36,8 +36,9 @@
                     </li>
                     <li><a><i class="fa fa-globe"></i> Breaking News <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="production/index3.html">Add Breaking News</a></li>
-                        <li><a href="production/index3.html">Breaking News Tables</a></li>
+                        <li><a href="{{route('add.breakingnews')}}">Add Breaking News</a></li>
+                        <li><a href="{{route('english.breakingnews')}}">English Breaking News </a></li>
+                        <li><a href="{{route('bangla.breakingnews')}}">Bangla Breaking News </a></li>
                       </ul>
                     </li>
                     

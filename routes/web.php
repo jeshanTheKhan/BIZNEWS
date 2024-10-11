@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\MainHeadlineController;
+use App\Http\Controllers\Admin\BreakingNewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +26,19 @@ Route::get('/Edit-News-Category/{id}', [CategoryController::class, 'edit'])->nam
 Route::post('/Update-News-Category', [CategoryController::class, 'update'])->name('update.category');
 Route::get('/Del-News-Category/{id}', [CategoryController::class, 'del'])->name('del.category');
 Route::post('/cat/update-status/{id}', [CategoryController::class, 'updateCatStatus'])->name('updateCatStatus');
+
+
+// Breaking News Related
+Route::get('/Add-Breaking-News', [BreakingNewsController::class, 'index'])->name('add.breakingnews');
+Route::post('/Save-Breaking-News', [BreakingNewsController::class, 'save'])->name('save.breakingnews');
+Route::get('/English-Breaking-News', [BreakingNewsController::class, 'eng'])->name('english.breakingnews');
+Route::get('/Bangla-Breaking-News', [BreakingNewsController::class, 'bangla'])->name('bangla.breakingnews');
+Route::post('/english-status/{id}', [BreakingNewsController::class, 'EnglishStatus'])->name('EnglishStatus');
+Route::get('/Edit-Breaking-News/{id}', [BreakingNewsController::class, 'edit'])->name('edit.breakingnews');
+Route::get('/Del-Breaking-News/{id}', [BreakingNewsController::class, 'del'])->name('del.breakingnews');
+Route::post('/Update-English-Breaking-News', [BreakingNewsController::class, 'updateEng'])->name('update.english.breakingnews');
+Route::get('/Edit-Bangla-Breaking-News/{id}', [BreakingNewsController::class, 'editbangla'])->name('edit.bangla.breakingnews');
+Route::post('/Update-Bangla-Breaking-News', [BreakingNewsController::class, 'updatebangla'])->name('update.bangla.breakingnews');
 
 
 require __DIR__.'/auth.php';
