@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BreakingNewsController;
+use App\Http\Controllers\Admin\AddsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,16 @@ Route::get('/Del-Breaking-News/{id}', [BreakingNewsController::class, 'del'])->n
 Route::post('/Update-English-Breaking-News', [BreakingNewsController::class, 'updateEng'])->name('update.english.breakingnews');
 Route::get('/Edit-Bangla-Breaking-News/{id}', [BreakingNewsController::class, 'editbangla'])->name('edit.bangla.breakingnews');
 Route::post('/Update-Bangla-Breaking-News', [BreakingNewsController::class, 'updatebangla'])->name('update.bangla.breakingnews');
+
+// Adds Related
+Route::get('/Add-Adds', [AddsController::class, 'index'])->name('add.adds');
+Route::post('/Save-Adds', [AddsController::class, 'save'])->name('save.adds');
+Route::get('/All-Adds', [AddsController::class, 'table'])->name('all.adds');
+Route::post('/adds-status/{id}', [AddsController::class, 'AddStatus'])->name('AddStatus');
+Route::get('/Edit-Adds/{id}', [AddsController::class, 'edit'])->name('edit.add');
+Route::post('/Update-Adds', [AddsController::class, 'update'])->name('update.add');
+Route::get('/Delete-Adds/{id}', [AddsController::class, 'del'])->name('del.add');
+
 
 
 require __DIR__.'/auth.php';
