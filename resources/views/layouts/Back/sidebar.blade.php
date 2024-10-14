@@ -38,7 +38,6 @@
                       <ul class="nav child_menu">
                         <li><a href="{{route('add.breakingnews')}}">Add Breaking News</a></li>
                         <li><a href="{{route('english.breakingnews')}}">English Breaking News </a></li>
-                        <li><a href="{{route('bangla.breakingnews')}}">Bangla Breaking News </a></li>
                       </ul>
                     </li>
 

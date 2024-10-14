@@ -24,11 +24,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/Add-News-Category', [CategoryController::class, 'index'])->name('add.category');
 Route::post('/Save-News-Category', [CategoryController::class, 'save'])->name('save.category');
 Route::get('/All-News-Category', [CategoryController::class, 'table'])->name('all.category');
-Route::get('/All-News-Category-Bangla', [CategoryController::class, 'banglatable'])->name('all.category.bangla');
 Route::get('/Edit-News-Category/{id}', [CategoryController::class, 'edit'])->name('edit.category');
-Route::get('/Edit-News-Category-Bangla/{id}', [CategoryController::class, 'banglaedit'])->name('edit.category.bangla');
 Route::post('/Update-News-Category', [CategoryController::class, 'update'])->name('update.category');
-Route::post('/Update-News-Category-Bangla', [CategoryController::class, 'banglaupdate'])->name('update.category.bangla');
 Route::get('/Del-News-Category/{id}', [CategoryController::class, 'del'])->name('del.category');
 Route::post('/cat/update-status/{id}', [CategoryController::class, 'updateCatStatus'])->name('updateCatStatus');
 
@@ -37,13 +34,10 @@ Route::post('/cat/update-status/{id}', [CategoryController::class, 'updateCatSta
 Route::get('/Add-Breaking-News', [BreakingNewsController::class, 'index'])->name('add.breakingnews');
 Route::post('/Save-Breaking-News', [BreakingNewsController::class, 'save'])->name('save.breakingnews');
 Route::get('/English-Breaking-News', [BreakingNewsController::class, 'eng'])->name('english.breakingnews');
-Route::get('/Bangla-Breaking-News', [BreakingNewsController::class, 'bangla'])->name('bangla.breakingnews');
 Route::post('/english-status/{id}', [BreakingNewsController::class, 'EnglishStatus'])->name('EnglishStatus');
 Route::get('/Edit-Breaking-News/{id}', [BreakingNewsController::class, 'edit'])->name('edit.breakingnews');
 Route::get('/Del-Breaking-News/{id}', [BreakingNewsController::class, 'del'])->name('del.breakingnews');
 Route::post('/Update-English-Breaking-News', [BreakingNewsController::class, 'updateEng'])->name('update.english.breakingnews');
-Route::get('/Edit-Bangla-Breaking-News/{id}', [BreakingNewsController::class, 'editbangla'])->name('edit.bangla.breakingnews');
-Route::post('/Update-Bangla-Breaking-News', [BreakingNewsController::class, 'updatebangla'])->name('update.bangla.breakingnews');
 
 // Adds Related
 Route::get('/Add-Adds', [AddsController::class, 'index'])->name('add.adds');

@@ -63,6 +63,7 @@
                 <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 66px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Serial Number</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 65px;" aria-label="Last name: activate to sort column ascending">Breaking News</th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 65px;" aria-label="Last name: activate to sort column ascending">Breaking News(Bangla)</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 25px;" aria-label="Age: activate to sort column ascending">Status</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 61px;" aria-label="Start date: activate to sort column ascending">Action</th>
                     
@@ -76,6 +77,7 @@
                 <tr role="row" class="odd">
                     <td tabindex="0" class="sorting_1">{{$sl++}}</td>
                     <td>{{$result->english_news}}</td>
+                    <td>{{$result->bangla_news}}</td>
                     <td>
                         @if($result->status == 1)
                         <form action="{{ route('EnglishStatus', $result->breakingnews_id) }}" method="POST">

@@ -68,6 +68,7 @@ class BreakingNewsController extends Controller
     {
         $store=Breakingnews::find($req->c_id);
         $store->english_news = $req->english;
+        $store->bangla_news = $req->bangla;
         $store->save();
 
         $store->save();
@@ -97,33 +98,6 @@ class BreakingNewsController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    // Edit(Bnagla)
-    // Edit
-    public function editbangla($id){
-        $results=Breakingnews::find($id);
-        return view('Admin.BreakingNews.editBan',compact('results'));
-    }
-    public function updatebangla(Request $req)
-    {
-        $store=Breakingnews::find($req->c_id);
-        $store->bangla_news = $req->bangla;
-        $store->save();
-
-        $store->save();
-        if($store){
-            $notification = array(
-                'message' => 'Breaking News Update Successfully',
-                'alert-type' => 'success'
-            );
-        }
-        else{
-            $notification = array(
-                'message' => 'Failed To Update!!',
-                'alert-type' => 'error'
-            );
-        }
-        return redirect()->route('bangla.breakingnews')->with($notification);
-
-    }
+    
 
 }
