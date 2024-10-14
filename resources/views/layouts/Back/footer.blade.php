@@ -49,6 +49,25 @@
   
       <!-- Custom Theme Scripts -->
       <script src="{{asset('storage/back/build/js/custom.min.js')}}"></script>
+      <!-- bootstrap-wysiwyg -->
+      <script src="{{asset('storage/back/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+      <script src="{{asset('storage/back/vendors/jquery.hotkeys/jquery.hotkeys.j')}}s"></script>
+      <script src="{{asset('storage/back/vendors/google-code-prettify/src/prettify.js')}}"></script>
+      <!-- jQuery Tags Input -->
+      <script src="{{asset('storage/back/vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
+      <!-- Switchery -->
+      <script src="{{asset('storage/back/vendors/switchery/dist/switchery.min.js')}}"></script>
+      <!-- Select2 -->
+      <script src="{{asset('storage/back/vendors/select2/dist/js/select2.full.min.js')}}"></script>
+      <!-- Parsley -->
+      <script src="{{asset('storage/back/vendors/parsleyjs/dist/parsley.min.js')}}"></script>
+      <!-- Autosize -->
+      <script src="{{asset('storage/back/vendors/autosize/dist/autosize.min.js')}}"></script>
+      <!-- jQuery autocomplete -->
+      <script src="{{asset('storage/back/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
+      <!-- starrr -->
+      <script src="{{asset('storage/back/vendors/starrr/dist/starrr.js')}}"></script>
+
 
          <!-- Datatables -->
     <script src="{{asset('storage/back/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>

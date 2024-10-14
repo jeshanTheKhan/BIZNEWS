@@ -12,6 +12,8 @@ class Category extends Model
     protected $fillable = [
         'cat_name',
         'cat_slug',
+        'bangla_cat_name',
+        'bangla_cat_slug',
         'cat_status',
     ];
 }

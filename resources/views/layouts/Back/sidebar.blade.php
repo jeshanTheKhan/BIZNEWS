@@ -31,7 +31,7 @@
                     <li><a><i class="fa fa-book"></i> Category <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{route('add.category')}}">Add Category</a></li>
-                        <li><a href="{{route('all.category')}}">Category Table</a></li>
+                        <li><a href="{{route('all.category')}}">Category Table English</a></li>
                       </ul>
                     </li>
                     <li><a><i class="fa fa-globe"></i> Breaking News <span class="fa fa-chevron-down"></span></a>
@@ -51,7 +51,7 @@
                     
                     <li><a><i class="fa fa-bullhorn"></i> News <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="production/general_elements.html">Add News</a></li>
+                        <li><a href="{{route('add.news')}}">Add News</a></li>
                         <li><a href="production/media_gallery.html">News Table</a></li>
                       </ul>
                     </li>
@@ -132,8 +132,8 @@
                 <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                   <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                 </a>
-                <a data-toggle="tooltip" data-placement="top" title="Lock">
-                  <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                <a href="{{route('welcome')}}" data-toggle="tooltip" data-placement="top" title="view" target="_blank">
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
                 <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{route('logout')}}">
                   <span class="glyphicon glyphicon-off" aria-hidden="true"></span>

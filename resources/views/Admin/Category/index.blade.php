@@ -64,6 +64,13 @@
                             <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
                         </div>
                     </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Category Name(Bangla) <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="first-name" name="cat_name_bangla" required="required" class="form-control ">
+                        </div>
+                    </div>
                     
                     <div class="ln_solid"></div>
                     <div class="item form-group">

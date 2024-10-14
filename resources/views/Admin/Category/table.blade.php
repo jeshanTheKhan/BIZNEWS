@@ -63,7 +63,7 @@
                 <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 66px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Serial Number</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 65px;" aria-label="Last name: activate to sort column ascending">Category name</th>
-                    <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 150px;" aria-label="Position: activate to sort column ascending">Category Slug</th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 150px;" aria-label="Position: activate to sort column ascending">Category name(Bangla)</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 66px;" aria-label="Office: activate to sort column ascending">Entry Date</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 25px;" aria-label="Age: activate to sort column ascending">Category Status</th>
                     <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 61px;" aria-label="Start date: activate to sort column ascending">Action</th>
@@ -78,7 +78,7 @@
                 <tr role="row" class="odd">
                     <td tabindex="0" class="sorting_1">{{$sl++}}</td>
                     <td>{{$cat->cat_name}}</td>
-                    <td>{{$cat->cat_slug}}</td>
+                    <td>{{$cat->bangla_cat_name}}</td>
                     <td>{{$cat->updated_at}}</td>
                     <td>
                         @if($cat->cat_status == 1)

@@ -18,6 +18,13 @@ class CategoryController extends Controller
         $store=new Category();
         $store->cat_name=$req->cat_name;
         $store->cat_slug=Str::slug($req->cat_name);
+        $store->bangla_cat_name=$req->cat_name_bangla;
+        function make_slug($string) {
+            return preg_replace('/\s+/u', '-', trim($string));
+        }
+        
+
+        $store->bangla_cat_slug=make_slug($req->cat_name_bangla);
         $store->save();
         
         $store->save();
@@ -40,10 +47,18 @@ class CategoryController extends Controller
         $cat=Category::all();
         return view('Admin.Category.table',compact('cat'));
     }
+    public function banglatable(){
+        $cat=Category::all();
+        return view('Admin.Category.banglatable',compact('cat'));
+    }
     // Edit
     public function edit($id){
         $cat=Category::find($id);
         return view('Admin.Category.edit',compact('cat'));
+    }
+    public function banglaedit($id){
+        $cat=Category::find($id);
+        return view('Admin.Category.banglaedit',compact('cat'));
     }
     // Update
     public function update(Request $req)
@@ -51,6 +66,13 @@ class CategoryController extends Controller
         $store=Category::find($req->c_id);
         $store->cat_name=$req->cat_name;
         $store->cat_slug=Str::slug($req->cat_name);
+        $store->bangla_cat_name=$req->bangla_cat_name;
+
+        function make_slug($string) {
+            return preg_replace('/\s+/u', '-', trim($string));
+        }
+
+        $store->bangla_cat_slug=make_slug($req->bangla_cat_name);
 
         $store->save();
         if($store){

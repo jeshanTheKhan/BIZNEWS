@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id('cat_id');
-            $table->string('cat_name');
-            $table->string('cat_slug');
-            $table->string('bangla_cat_name');
-            $table->string('bangla_cat_slug');
-            $table->integer('cat_status')->default('1');
+        Schema::create('news', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('news');
     }
 };

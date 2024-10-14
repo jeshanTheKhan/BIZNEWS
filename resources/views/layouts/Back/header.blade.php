@@ -16,6 +16,20 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('storage/back/build/css/custom.min.css')}}" rel="stylesheet">
+    
+	<!-- bootstrap-wysiwyg -->
+	<link href="{{asset('storage/back/vendors/google-code-prettify/bin/prettify.min.css')}}" rel="stylesheet">
+	<!-- Select2 -->
+	<link href="{{asset('storage/back/vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet">
+	<!-- Switchery -->
+	<link href="{{asset('storage/back/vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
+	<!-- starrr -->
+	<link href="{{asset('storage/back/vendors/starrr/dist/starrr.css')}}" rel="stylesheet">
+	<!-- bootstrap-daterangepicker -->
+	<link href="{{asset('storage/back/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
+	<!-- Custom Theme Style -->
+	<link href="{{asset('storage/back/build/css/custom.min.css')}}" rel="stylesheet">
 
         <!-- Datatables -->
     
@@ -27,4 +41,5 @@
 
     <!-- Toaster & Sweetalert Style -->
     <link href="{{asset('storage/back/build/css/toastr.css')}}" rel="stylesheet">
+
   </head>
