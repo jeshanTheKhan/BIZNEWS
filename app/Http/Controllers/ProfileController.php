@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,17 +25,44 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $req)
     {
-        $request->user()->fill($request->validated());
+        // $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // if ($request->user()->isDirty('email')) {
+        //     $request->user()->email_verified_at = null;
+        // }
+
+        // $request->user()->save();
+
+        // return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $store = User::find(Auth::user()->id);
+        $store->name = $req->name;
+        $store->lastName = $req->lastName;
+        $store->number = $req->phoneNumber;
+        $store->state = $req->state;
+        $store->zipCode = $req->zipCode;
+        $store->address = $req->address;
+        $store->twitter = $req->twitter;
+        $store->facebook = $req->facebook;
+        $store->linkedln = $req->linkdln;
+        $store->instagram = $req->instagram;
+        $store->youtube = $req->youtube;
+
+        $store->save();
+        if($store){
+            $notification = array(
+                'message' => 'Profile Upgrade Successfully',
+                'alert-type' => 'success'
+            );
         }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        else{
+            $notification = array(
+                'message' => 'Failed To Upgrade!!',
+                'alert-type' => 'error'
+            );
+        }
+        return redirect()->back()->with($notification);
     }
 
     /**

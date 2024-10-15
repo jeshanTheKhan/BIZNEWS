@@ -40,11 +40,6 @@ class BreakingNewsController extends Controller
         $result = Breakingnews::whereNotNull('english_news')->get();
         return view('Admin.BreakingNews.engtable', compact('result'));
     }
-    public function bangla()
-    {
-        $result = Breakingnews::whereNotNull('bangla_news')->get();
-        return view('Admin.BreakingNews.banglatable', compact('result'));
-    }
 
     public function EnglishStatus(Request $request, $id)
     {

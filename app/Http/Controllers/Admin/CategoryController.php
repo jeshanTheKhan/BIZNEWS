@@ -47,18 +47,10 @@ class CategoryController extends Controller
         $cat=Category::all();
         return view('Admin.Category.table',compact('cat'));
     }
-    public function banglatable(){
-        $cat=Category::all();
-        return view('Admin.Category.banglatable',compact('cat'));
-    }
     // Edit
     public function edit($id){
         $cat=Category::find($id);
         return view('Admin.Category.edit',compact('cat'));
-    }
-    public function banglaedit($id){
-        $cat=Category::find($id);
-        return view('Admin.Category.banglaedit',compact('cat'));
     }
     // Update
     public function update(Request $req)
