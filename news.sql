@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2024 at 02:38 AM
+-- Generation Time: Oct 15, 2024 at 04:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -85,18 +85,12 @@ CREATE TABLE `categories` (
   `cat_id` bigint(20) UNSIGNED NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `cat_slug` varchar(255) NOT NULL,
+  `bangla_cat_name` mediumtext NOT NULL,
+  `bangla_cat_slug` mediumtext NOT NULL,
   `cat_status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_slug`, `cat_status`, `created_at`, `updated_at`) VALUES
-(1, 'Busines', 'busines', 0, '2024-10-10 17:59:00', '2024-10-10 19:01:54'),
-(2, 'Politics', 'politics', 1, '2024-10-10 17:59:06', '2024-10-10 17:59:06');
 
 -- --------------------------------------------------------
 
@@ -171,7 +165,43 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2024_10_10_004559_create_categories_table', 2),
 (6, '2024_10_11_105359_create_breakingnews_table', 3),
-(7, '2024_10_12_071722_create_adds_table', 4);
+(7, '2024_10_12_071722_create_adds_table', 4),
+(8, '2024_10_13_082525_create_news_table', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `news_id` bigint(20) UNSIGNED NOT NULL,
+  `english_title` varchar(255) DEFAULT NULL,
+  `english_title_slug` varchar(255) DEFAULT NULL,
+  `bangla_title` varchar(255) DEFAULT NULL,
+  `bangla_title_slug` varchar(255) DEFAULT NULL,
+  `one_subtitle_english` varchar(255) DEFAULT NULL,
+  `one_subtitle_bangla` varchar(255) DEFAULT NULL,
+  `two_subtitle_english` varchar(255) DEFAULT NULL,
+  `two_subtitle_bangla` varchar(255) DEFAULT NULL,
+  `news_category` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `one_english_description` varchar(255) DEFAULT NULL,
+  `one_bangla_description` varchar(255) DEFAULT NULL,
+  `two_english_description` varchar(255) DEFAULT NULL,
+  `two_bangla_description` varchar(255) DEFAULT NULL,
+  `three_english_description` varchar(255) DEFAULT NULL,
+  `three_bangla_description` varchar(255) DEFAULT NULL,
+  `image1` varchar(255) NOT NULL,
+  `image2` varchar(255) NOT NULL,
+  `image3` varchar(255) NOT NULL,
+  `hero` int(11) DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  `feather` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -205,7 +235,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('bQDVZhS1ZDwOv3OaijWBC92Ug6DWI9wGFYYg829p', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSXhDeGJpWXlmRXhkR3B2cW5BRVdMS2dMdEZKWW9QY05DaUM0ZjdCdyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0L0FsbC1BZGRzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1728779826);
+('nZR1LbWatSMUHET5ZkmiYeguzekh3EBED51UPdlY', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSFAyc1lsellMWEtlWk5pbmZrQUtpbEtMak83UTJybXZHZU1POTJRNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0L3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1728950996),
+('pted4ytjIF2ae4u7N8KlWvpnk6uh6QdmUEkjHm74', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVXprNkxTREZ1UkZDSHpnNWU0Umo5ZEVtR3ZiTWJWclpINDJra0taYyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM3OiJodHRwOi8vbG9jYWxob3N0L05ld3NfUHJvamVjdC9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1728951641),
+('vpKbXHnCxs9p1ETWLen5FKjxfcg4FyawOLBljfpL', 2, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ0NobHpiRnB2TjR3bk1IUnJnZEc3R3dQa3ZwSW05b1ZuSHJ4RFlWVyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1728959100);
 
 -- --------------------------------------------------------
 
@@ -216,7 +248,11 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `lastName` varchar(2000) DEFAULT NULL,
+  `image` varchar(2000) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `state` varchar(2000) DEFAULT NULL,
+  `zipCode` varchar(2000) DEFAULT NULL,
   `number` varchar(255) DEFAULT NULL,
   `twitter` varchar(255) DEFAULT NULL,
   `facebook` varchar(255) DEFAULT NULL,
@@ -235,8 +271,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `address`, `number`, `twitter`, `facebook`, `linkedln`, `instagram`, `youtube`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jeshan Khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'BER4dYyJM15dyedYP6b3M40eJ7tT9wIAAOxjQbuBJigrXt3AUOEfMmg3Iewy', '2024-10-09 09:20:21', '2024-10-09 09:20:21');
+INSERT INTO `users` (`id`, `name`, `lastName`, `image`, `address`, `state`, `zipCode`, `number`, `twitter`, `facebook`, `linkedln`, `instagram`, `youtube`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Jeshan', 'Khan', NULL, 'Silver Village', 'Sylhet', '3100', '01607906754', NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'cgw7ZgH0SZkPDodwcixr1VMPTGxau7JGECvygR2RUhvG3U7s0uuHzRv1iIHy', '2024-10-09 09:20:21', '2024-10-14 18:33:51');
 
 --
 -- Indexes for dumped tables
@@ -299,6 +335,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -333,13 +375,13 @@ ALTER TABLE `adds`
 -- AUTO_INCREMENT for table `breakingnews`
 --
 ALTER TABLE `breakingnews`
-  MODIFY `breakingnews_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `breakingnews_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -357,13 +399,19 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `news_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

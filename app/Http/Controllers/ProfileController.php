@@ -85,4 +85,14 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    // Delete
+    public function del($id){
+        $category=User::find($id);
+        $category->delete();
+        $notification = array(
+            'message' => 'Category Delete Successfully',
+            'alert-type' => 'error'
+        );
+        return redirect()->to('/')->with($notification);
+    }
 }

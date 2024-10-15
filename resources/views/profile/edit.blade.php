@@ -209,7 +209,7 @@
                             >
                           </div>
                           <input type="hidden" value="{{Auth::user()->id  }}" name="c_id">
-                          <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                          <a href="{{route('account.delete',Auth::user()->id)}}" type="submit" class="btn btn-danger deactivate-account">Deactivate Account</a>
                         </form>
                       </div>
                     </div>

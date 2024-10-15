@@ -23,7 +23,12 @@
                         <a class="nav-link text-body small" href="#">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-body small" href="#">Login</a>
+                       
+                        @if(!Auth::check())
+								<div><a class="nav-link text-body small" href="{{route('login')}}" target="_blank">Sign in</a></div>
+								@else
+								<div><a class="nav-link text-body small" href="{{route('dashboard')}}" target="_blank">Dashboard</a></div>
+								@endif
                     </li>
                 </ul>
             </nav>
