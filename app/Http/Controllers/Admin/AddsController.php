@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Adds;
 use Illuminate\Http\Request;
+use Str;
 use Image;
 
 class AddsController extends Controller
@@ -17,10 +18,11 @@ class AddsController extends Controller
     public function save(Request $req){
         $store=New Adds();
         $store->add_link=$req->link;
+        $slug=Str::slug($req->link);
 
         if ($req->file('main_thumbnail')) {
             $image = $req->file('main_thumbnail');
-            $image_ext = $req->link . '.' . $image->getClientOriginalExtension();
+            $image_ext = $slug.'-'.rand(00000, 99999). '.'.$image->getClientOriginalExtension();
             Image::make($image)->resize(300, 300)->save('storage/back/media/add/' . $image_ext);
             $store->add_image = $image_ext;
         }
@@ -66,17 +68,18 @@ class AddsController extends Controller
     {
         $store=Adds::find($req->c_id);
         $store->add_link=$req->link;
+        $slug=Str::slug($req->link);
 
         if ($req->file('main_thumbnail')) {
             $image = $req->file('main_thumbnail');
-            $image_ext = $req->link . '.' . $image->getClientOriginalExtension();
+            $image_ext = $slug.'-'.rand(00000, 99999).'.'. $image->getClientOriginalExtension();
         
             // Resize and save the image
             Image::make($image)->resize(300, 300)->save('storage/back/media/add/' . $image_ext);
         
             // Delete the old image if it exists
             if ($store->add_image && file_exists('storage/back/media/add/' . $store->add_image)) {
-                unlink('storage/back/media/add/' . $store->add_image);
+                unlink('storage/back/media/add/' . $req->old_img);
             }
         
             // Update the database record with the new image name
@@ -100,12 +103,25 @@ class AddsController extends Controller
     }
     // Delete
     public function del($id){
-        $results=Adds::find($id);
-        $results->delete();
+        $result = Adds::find($id);
+        
+        // Check if the image file exists and delete it
+        if ($result && $result->add_image) {
+            $imagePath = 'storage/back/media/add/' . $result->add_image;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+    
+        // Delete the database entry
+        $result->delete();
+        
         $notification = array(
-            'message' => 'Adds Delete Successfully',
+            'message' => 'Add Deleted Successfully',
             'alert-type' => 'error'
         );
+        
         return redirect()->back()->with($notification);
     }
+    
 }

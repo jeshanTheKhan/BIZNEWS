@@ -31,13 +31,13 @@
                     <li><a><i class="fa fa-book"></i> Category <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{route('add.category')}}">Add Category</a></li>
-                        <li><a href="{{route('all.category')}}">Category Table English</a></li>
+                        <li><a href="{{route('all.category')}}">Category Table </a></li>
                       </ul>
                     </li>
                     <li><a><i class="fa fa-globe"></i> Breaking News <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{route('add.breakingnews')}}">Add Breaking News</a></li>
-                        <li><a href="{{route('english.breakingnews')}}">English Breaking News </a></li>
+                        <li><a href="{{route('english.breakingnews')}}">Breaking News </a></li>
                       </ul>
                     </li>
 

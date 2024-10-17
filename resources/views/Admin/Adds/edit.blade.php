@@ -80,6 +80,7 @@
                     <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
                             <a href="{{route('all.adds')}}" class="btn btn-primary" type="button">Cancel</a>
+                            <input type="hidden" name="old_img" value="{{$result->add_image}}">
                             <a href="" class="btn btn-primary" type="reset">Reset</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
