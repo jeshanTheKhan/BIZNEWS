@@ -13,25 +13,10 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id('news_id');
-            $table->string('english_title')->nullable();
-            $table->string('english_title_slug')->nullable();
-            $table->string('bangla_title')->nullable();
-            $table->string('bangla_title_slug')->nullable();
-            $table->string('one_subtitle_english')->nullable();
-            $table->string('one_subtitle_bangla')->nullable();
-            $table->string('two_subtitle_english')->nullable();
-            $table->string('two_subtitle_bangla')->nullable();
-            $table->string('news_category');
-            $table->string('date');
-            $table->string('one_english_description')->nullable();
-            $table->string('one_bangla_description')->nullable();
-            $table->string('two_english_description')->nullable();
-            $table->string('two_bangla_description')->nullable();
-            $table->string('three_english_description')->nullable();
-            $table->string('three_bangla_description')->nullable();
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
+            $table->string('english_title');
+            $table->string('bangla_title');
+            $table->text('english_body');
+            $table->text('bangla_body');
             $table->integer('hero')->nullable();
             $table->integer('category')->nullable();
             $table->integer('feather')->nullable();

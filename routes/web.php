@@ -53,6 +53,7 @@ Route::get('/Delete-Adds/{id}', [AddsController::class, 'del'])->name('del.add')
 
 // News
 Route::get('/Add-News', [NewsController::class, 'index'])->name('add.news');
+Route::post('/Save-News', [NewsController::class, 'save'])->name('save.news');
 
 });
 require __DIR__.'/auth.php';

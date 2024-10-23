@@ -91,7 +91,7 @@
     <script src="{{asset('storage/back/build/js/toastr.min.js')}}"></script>
 
  
-    
+   
       <script>
       @if(Session::has('message'))
         var type="{{Session::get('alert-type','info')}}"
@@ -111,6 +111,8 @@
         }
       @endif
     </script>
+     
+     
       
     </body>
   </html>

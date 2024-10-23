@@ -42,4 +42,9 @@
     <!-- Toaster & Sweetalert Style -->
     <link href="{{asset('storage/back/build/css/toastr.css')}}" rel="stylesheet">
 
+
+    {{-- CKEditor CDN --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+
   </head>

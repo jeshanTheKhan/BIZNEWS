@@ -56,50 +56,23 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form id="demo-form2" data-parsley-validate="" method="POST" action="" class="form-horizontal form-label-left" novalidate="">
+                    <form id="demo-form2" data-parsley-validate="" method="{{route('save.news')}}" action="" class="form-horizontal form-label-left" novalidate="" enctype="multipart/form-data">
                         @csrf
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title (English)
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
+                                <input type="text" id="first-name" name="eng_title" required="required" class="form-control ">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title (Bangla)
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
+                                <input type="text" id="first-name" name="ban_title" required="required" class="form-control ">
                             </div>
                         </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">1st Sub-Title (English)
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">1st Sub-Title (Bangla)
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">2nd Sub-Title (English)
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">2nd Sub-Title (Bangla)
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" name="cat_name" required="required" class="form-control ">
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Select Category</label>
                             <div class="col-md-6 col-sm-6 ">
@@ -127,63 +100,19 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">1st Description(English)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">1st Description(Bangla)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">2nd Description(English)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">2nd Description(Bangla)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">3rd Description(English)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="message" class="col-form-label col-md-3 col-sm-3 label-align ">3rd Description(Bangla)</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" style="height: 52px;"></textarea></div>
-                        </div>
-                        {{-- Thumbnai --}}                                    
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="basic-icon-default-company">Image 1</label>
-                            <div class="col-sm-10">
-                                <img id="studentPhoto">
-                              <div class="col-md-7 col-sm-6">
-                                <input class="form-control" type="file" name="main_thumbnail" id="formFile"  onchange="studentphoto(this);" id="photo" accept="image/*">
-                              </div>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align ">English Body </label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" id="englishbody" placeholder="Enter the Description" name="body"></textarea>
                             </div>
-                          </div>
-                          <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="basic-icon-default-company">Image 2</label>
-                            <div class="col-sm-10">
-                                <img id="studentPhoto1">
-                              <div class="col-md-7 col-sm-6">
-                                <input class="form-control" type="file" name="image1" id="formFile" onchange="studentphoto1(this);" id="photo" accept="image/*">
-                              </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align ">Bangla Body </label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" id="banglabody" placeholder="Enter the Description" name="body"></textarea>
                             </div>
-                          </div>
-                          <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="basic-icon-default-company">Image 3</label>
-                            <div class="col-sm-10">
-                                <img id="studentPhoto2">
-                              <div class="col-md-7 col-sm-6">
-                                <input class="form-control" type="file" onchange="studentphoto2(this);"name="image2" id="formFile">
-                              </div>
-                            </div>
-                          </div>
+                            
+                        </div>
                           {{-- Feather --}}
                           <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">News Feather
@@ -217,5 +146,24 @@
         </div>
     </div>
   </div>
+
     <!-- /top tiles -->
-@endsection
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#englishbody' ) )
+        .catch( error => {
+        console.error( error );
+        });
+    </script>
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#banglabody' ) )
+        .catch( error => {
+        console.error( error );
+        });
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    @endsection

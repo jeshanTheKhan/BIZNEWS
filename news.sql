@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2024 at 04:26 AM
+-- Generation Time: Oct 23, 2024 at 03:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -166,7 +166,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2024_10_10_004559_create_categories_table', 2),
 (6, '2024_10_11_105359_create_breakingnews_table', 3),
 (7, '2024_10_12_071722_create_adds_table', 4),
-(8, '2024_10_13_082525_create_news_table', 5);
+(10, '2024_10_13_082525_create_news_table', 5);
 
 -- --------------------------------------------------------
 
@@ -176,25 +176,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `news` (
   `news_id` bigint(20) UNSIGNED NOT NULL,
-  `english_title` varchar(255) DEFAULT NULL,
-  `english_title_slug` varchar(255) DEFAULT NULL,
-  `bangla_title` varchar(255) DEFAULT NULL,
-  `bangla_title_slug` varchar(255) DEFAULT NULL,
-  `one_subtitle_english` varchar(255) DEFAULT NULL,
-  `one_subtitle_bangla` varchar(255) DEFAULT NULL,
-  `two_subtitle_english` varchar(255) DEFAULT NULL,
-  `two_subtitle_bangla` varchar(255) DEFAULT NULL,
-  `news_category` varchar(255) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `one_english_description` varchar(255) DEFAULT NULL,
-  `one_bangla_description` varchar(255) DEFAULT NULL,
-  `two_english_description` varchar(255) DEFAULT NULL,
-  `two_bangla_description` varchar(255) DEFAULT NULL,
-  `three_english_description` varchar(255) DEFAULT NULL,
-  `three_bangla_description` varchar(255) DEFAULT NULL,
-  `image1` varchar(255) NOT NULL,
-  `image2` varchar(255) NOT NULL,
-  `image3` varchar(255) NOT NULL,
+  `english_title` varchar(255) NOT NULL,
+  `bangla_title` varchar(255) NOT NULL,
+  `english_body` text NOT NULL,
+  `bangla_body` text NOT NULL,
   `hero` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
   `feather` int(11) DEFAULT NULL,
@@ -235,9 +220,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('nZR1LbWatSMUHET5ZkmiYeguzekh3EBED51UPdlY', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSFAyc1lsellMWEtlWk5pbmZrQUtpbEtMak83UTJybXZHZU1POTJRNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0L3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1728950996),
-('pted4ytjIF2ae4u7N8KlWvpnk6uh6QdmUEkjHm74', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVXprNkxTREZ1UkZDSHpnNWU0Umo5ZEVtR3ZiTWJWclpINDJra0taYyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM3OiJodHRwOi8vbG9jYWxob3N0L05ld3NfUHJvamVjdC9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1728951641),
-('vpKbXHnCxs9p1ETWLen5FKjxfcg4FyawOLBljfpL', 2, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ0NobHpiRnB2TjR3bk1IUnJnZEc3R3dQa3ZwSW05b1ZuSHJ4RFlWVyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1728959100);
+('5eDbRuNfxoNd8ypAyV8bcqNLHKFosOsx28ORoaxs', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNmdqZ0tXMHhYN2hqdk9GbmdaRGE2VVMzd1didXIyOG92R09pcEY0ZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1729563007),
+('61qkatiEXbGkKk7eZnmt25o62C4aCq5W4XAOi0Sy', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRlRnQWZla0NBMXpVZjNjRnBHZG9OWU5lNlBtTVE0RjVOVnlJVEwyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0L0FkZC1OZXdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1729584751),
+('FFDVGB3FxLY5TrOmVPOK5Nwcd7BBKBTrCrWlqdCo', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTTFJaHZXZlZGUXZUUDFJZWRMOXc0WU1lUk9wNk5VVmtLS09DN3RVeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1729135424);
 
 -- --------------------------------------------------------
 
@@ -272,7 +257,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastName`, `image`, `address`, `state`, `zipCode`, `number`, `twitter`, `facebook`, `linkedln`, `instagram`, `youtube`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jeshan', 'Khan', NULL, 'Silver Village', 'Sylhet', '3100', '01607906754', NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'cgw7ZgH0SZkPDodwcixr1VMPTGxau7JGECvygR2RUhvG3U7s0uuHzRv1iIHy', '2024-10-09 09:20:21', '2024-10-14 18:33:51');
+(1, 'Jeshan', 'Khan', NULL, 'Silver Village', 'Sylhet', '3100', '01607906754', NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'CDzlTnOYWpxhADorM5yIV0YSJzfdedNiYmAe5uo26FiEL750LUZzkbxcsBkW', '2024-10-09 09:20:21', '2024-10-14 18:33:51');
 
 --
 -- Indexes for dumped tables
@@ -369,7 +354,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adds`
 --
 ALTER TABLE `adds`
-  MODIFY `add_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `add_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `breakingnews`
@@ -399,7 +384,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `news`
