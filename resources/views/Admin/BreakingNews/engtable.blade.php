@@ -76,8 +76,8 @@
                 @foreach ($result as $result)
                 <tr role="row" class="odd">
                     <td tabindex="0" class="sorting_1">{{$sl++}}</td>
-                    <td>{{$result->english_news}}</td>
-                    <td>{{$result->bangla_news}}</td>
+                    <td>{{ Str::words($result->english_news, 5, '...') }}</td>
+                    <td>{{ Str::words($result->bangla_news, 5, '...') }}</td>
                     <td>
                         @if($result->status == 1)
                         <form action="{{ route('EnglishStatus', $result->breakingnews_id) }}" method="POST">

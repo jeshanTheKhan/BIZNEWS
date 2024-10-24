@@ -79,9 +79,9 @@
                     <div class="ln_solid"></div>
                     <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
-                            <a href="{{route('all.adds')}}" class="btn btn-primary" type="button">Cancel</a>
+                            <button class="btn btn-primary" type="button" onclick="window.history.back();">Cancel</button>
+                            <button class="btn btn-primary" type="reset" onclick="window.location.reload();">Reset</button>
                             <input type="hidden" name="old_img" value="{{$result->add_image}}">
-                            <a href="" class="btn btn-primary" type="reset">Reset</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>

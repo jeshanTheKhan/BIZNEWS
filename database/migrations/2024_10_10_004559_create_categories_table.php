@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('cat_slug');
             $table->string('bangla_cat_name');
             $table->string('bangla_cat_slug');
+            $table->string('date');
             $table->integer('cat_status')->default('1');
             $table->timestamps();
         });

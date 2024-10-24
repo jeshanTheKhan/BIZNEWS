@@ -14,6 +14,7 @@ class Category extends Model
         'cat_slug',
         'bangla_cat_name',
         'bangla_cat_slug',
+        'date',
         'cat_status',
     ];
 }

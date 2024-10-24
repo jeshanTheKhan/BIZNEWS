@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('bangla_title');
             $table->text('english_body');
             $table->text('bangla_body');
+            $table->text('image');
             $table->integer('hero')->nullable();
             $table->integer('category')->nullable();
             $table->integer('feather')->nullable();

@@ -9,6 +9,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomController::class, 'index'])->name('welcome');
+Route::get('/change-lan', [WelcomController::class, 'changeLan'])->name('change.lang');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -54,6 +56,9 @@ Route::get('/Delete-Adds/{id}', [AddsController::class, 'del'])->name('del.add')
 // News
 Route::get('/Add-News', [NewsController::class, 'index'])->name('add.news');
 Route::post('/Save-News', [NewsController::class, 'save'])->name('save.news');
+Route::get('/All-News', [NewsController::class, 'table'])->name('all.news');
+Route::get('/Edit-News/{id}', [NewsController::class, 'edit'])->name('news.edit');
+Route::post('/News-status/{id}', [NewsController::class, 'NewsStatus'])->name('updateNewsStatus');
 
 });
 require __DIR__.'/auth.php';

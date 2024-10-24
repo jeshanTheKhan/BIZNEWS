@@ -76,9 +76,9 @@
                 @foreach ($result as $result)
                 <tr role="row" class="odd">
                     <td tabindex="0" class="sorting_1">{{$sl++}}</td>
-                    <td>{{$result->add_link}}</td>
+                    <td>{{ Str::limit($result->add_link, 20, '...') }}</td>
                     <td style="text-align: center">
-                        <img class="img-responsive avatar-view" src="{{asset('storage/back/media/add/'.$result->add_image)}}" style="width: 20%;height:auto;" alt="Avatar" title="Change the avatar">
+                        <img class="img-responsive avatar-view" src="{{asset('storage/back/media/add/'.$result->add_image)}}" style="width: 40%;height:auto;" alt="Avatar" title="Change the avatar">
                     </td>
                     <td>
                         @if($result->add_status == 1)

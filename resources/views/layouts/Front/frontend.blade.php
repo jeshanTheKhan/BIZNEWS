@@ -14,13 +14,32 @@
             <nav class="navbar navbar-expand-sm bg-dark p-0">
                 <ul class="navbar-nav ml-n2">
                     <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#">Monday, January 1, 2045</a>
+                        <a class="nav-link text-body small" href="#">
+                            @if(Session::get('lang') == 'bangla')
+                            @php
+                            \Carbon\Carbon::setLocale('bn'); // Set locale to Bangla
+                            $banglaDate = \Carbon\Carbon::now()->translatedFormat('l, j F, Y');
+                        @endphp
+                        
+                        {{ $banglaDate }}
+                        
+                            @else 
+                            {{ \Carbon\Carbon::now()->format('l, F j, Y') }} 
+                            @endif
+                            
+                        </a>
                     </li>
                     <li class="nav-item border-right border-secondary">
                         <a class="nav-link text-body small" href="#">Advertise</a>
                     </li>
                     <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#">Contact</a>
+                        <a class="nav-link text-body small" href="{{ route('change.lang') }}">
+                            @if(Session::get('lang') == 'bangla')
+                                English
+                            @else 
+                                Bangla 
+                            @endif
+                        </a>
                     </li>
                     <li class="nav-item">
                        
@@ -83,18 +102,47 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="category.html" class="nav-item nav-link">Category</a>
-                <a href="single.html" class="nav-item nav-link">Single News</a>
+                <a href="index.html" class="nav-item nav-link active">
+                    @if(Session::get('lang') == 'bangla')
+                    হোম
+                    @else 
+                    Home 
+                @endif
+                </a>
+                
+                   
+                {{-- <a href="single.html" class="nav-item nav-link">
+                
+                    Single News</a> --}}
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        
+                        @if(Session::get('lang') == 'bangla')
+                        ক্যাটাগরি
+                        @else 
+                        Category 
+                        @endif
+                        </a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="#" class="dropdown-item">Menu item 1</a>
-                        <a href="#" class="dropdown-item">Menu item 2</a>
-                        <a href="#" class="dropdown-item">Menu item 3</a>
+                        @foreach($cat as $cat)
+                        <a href="#" class="dropdown-item">
+                            @if(Session::get('lang') == 'bangla')
+                                {{ $cat->bangla_cat_name }}
+                            @else 
+                            {{ $cat->cat_name }}
+                            @endif
+                        </a>
+                        @endforeach
+                        
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="contact.html" class="nav-item nav-link">
+                    @if(Session::get('lang') == 'bangla')
+                    যোগাযোগ
+                        @else 
+                        Contact 
+                        @endif
+                    </a>
             </div>
             <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
                 <input type="text" class="form-control border-0" placeholder="Keyword">

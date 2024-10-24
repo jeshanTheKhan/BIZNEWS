@@ -51,7 +51,7 @@
                     <li><a><i class="fa fa-bullhorn"></i> News <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{route('add.news')}}">Add News</a></li>
-                        <li><a href="production/media_gallery.html">News Table</a></li>
+                        <li><a href="{{ route('all.news') }}">News Table</a></li>
                       </ul>
                     </li>
                     {{-- <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>

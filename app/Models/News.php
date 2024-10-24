@@ -14,9 +14,15 @@ class News extends Model
         "bangla_title",
         "english_body",
         "bangla_body",
+        "image",
         'hero',
         'category',
         'feather',
         'status',
     ];
+
+    public function category(){
+        return $this->hasOne(Category::class, 'cat_id', 'news_cat');
+    }
+    
 }

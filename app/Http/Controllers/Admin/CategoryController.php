@@ -25,6 +25,7 @@ class CategoryController extends Controller
         
 
         $store->bangla_cat_slug=make_slug($req->cat_name_bangla);
+        $store->date= date('d-m-Y');
         $store->save();
         
         $store->save();

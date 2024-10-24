@@ -79,7 +79,7 @@
                     <td tabindex="0" class="sorting_1">{{$sl++}}</td>
                     <td>{{$cat->cat_name}}</td>
                     <td>{{$cat->bangla_cat_name}}</td>
-                    <td>{{$cat->updated_at}}</td>
+                    <td>{{$cat->date}}</td>
                     <td>
                         @if($cat->cat_status == 1)
                             <form action="{{ route('updateCatStatus', $cat->cat_id) }}" method="POST">

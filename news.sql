@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2024 at 03:55 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Oct 24, 2024 at 03:08 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,13 @@ CREATE TABLE `adds` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `adds`
+--
+
+INSERT INTO `adds` (`add_id`, `add_link`, `add_image`, `add_status`, `created_at`, `updated_at`) VALUES
+(1, 'https://sider.ai/apps/lp-chatgpt?source=gg&p1=ai&p2=display&gad_source=5&gclid=EAIaIQobChMIje2VnommiQMVwnCdCR1cJR8kEAEYASAAEgIHt_D_BwE', 'httpssideraiappslp-chatgptsourceggp1aip2displaygad-source5gclideaiaiqobchmije2vnommiqmvwncdcr1cjr8keaeyasaaegiht-d-bwe-2459.png', '1', '2024-10-23 21:27:25', '2024-10-23 21:30:15');
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +57,13 @@ CREATE TABLE `breakingnews` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `breakingnews`
+--
+
+INSERT INTO `breakingnews` (`breakingnews_id`, `english_news`, `bangla_news`, `status`, `created_at`, `updated_at`) VALUES
+(6, '‘Dana’ turns into a strong cyclone, heavy rains predicted in coastal areas.', 'শক্তিশালী ঘূর্ণিঝড়ে পরিণত হলো ‘দানা’, উপকূলীয় এলাকায় ভারী বৃষ্টির পূর্বাভাস।', 1, '2024-10-23 21:19:38', '2024-10-23 21:26:30');
 
 -- --------------------------------------------------------
 
@@ -87,10 +101,20 @@ CREATE TABLE `categories` (
   `cat_slug` varchar(255) NOT NULL,
   `bangla_cat_name` mediumtext NOT NULL,
   `bangla_cat_slug` mediumtext NOT NULL,
+  `date` mediumtext NOT NULL,
   `cat_status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_slug`, `bangla_cat_name`, `bangla_cat_slug`, `date`, `cat_status`, `created_at`, `updated_at`) VALUES
+(1, 'Business', 'business', 'ব্যবসা', 'ব্যবসা', '23-10-2024', 1, '2024-10-23 01:06:12', '2024-10-23 21:13:21'),
+(2, 'Politics', 'politics', 'রাজনীতি', 'রাজনীতি', '23-10-2024', 1, '2024-10-23 01:06:38', '2024-10-23 01:06:38'),
+(3, 'Sports', 'sports', 'খেলাধুলা', 'খেলাধুলা', '23-10-2024', 1, '2024-10-23 01:06:41', '2024-10-23 01:06:41');
 
 -- --------------------------------------------------------
 
@@ -178,6 +202,11 @@ CREATE TABLE `news` (
   `news_id` bigint(20) UNSIGNED NOT NULL,
   `english_title` varchar(255) NOT NULL,
   `bangla_title` varchar(255) NOT NULL,
+  `news_cat` mediumtext NOT NULL,
+  `english_title_slug` mediumtext NOT NULL,
+  `bangla_title_slug` varchar(2000) NOT NULL,
+  `date` mediumtext NOT NULL,
+  `image` mediumtext NOT NULL,
   `english_body` text NOT NULL,
   `bangla_body` text NOT NULL,
   `hero` int(11) DEFAULT NULL,
@@ -187,6 +216,13 @@ CREATE TABLE `news` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`news_id`, `english_title`, `bangla_title`, `news_cat`, `english_title_slug`, `bangla_title_slug`, `date`, `image`, `english_body`, `bangla_body`, `hero`, `category`, `feather`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Zaker\'s dismissal broke the record pair of 138 runs', 'জাকেরের আউটে ১৩৮ রানের রেকর্ড জুটি ভেঙে যায়', '3', 'zakers-dismissal-broke-the-record-pair-of-138-runs', 'জাকেরের-আউটে-১৩৮-রানের-রেকর্ড-জুটি-ভেঙে-যায়', '23-10-2024', 'N-59432.jpg', '<h2>Zaker returned</h2><p>Maharaj\'s arm delivery on middle-leg stump by Zaker. Maharaj was quite sure. Did not apply much. Zaker takes a review, but the ball hits the leg stump. Zaker returned with 58 runs.</p><p>Bangladesh\'s lead is 50 runs. The new batsman Naeem Hasan was also given lbw by the umpire in that over. But Naeem survived with the review.</p>', '<p><strong>জাকের ফিরলেন</strong>\r\n</p><p>\r\nজাকের মিডল-লেগ স্টাম্পে মহারাজের আর্ম ডেলিভারি। মহারাজ বেশ নিশ্চিত ছিলেন। খুব একটা প্রয়োগ করেননি। জাকের রিভিউ নেন, কিন্তু বল লেগে যায় লেগ স্টাম্পে। ৫৮ রান করে ফেরেন জাকের।\r\n\r\nবাংলাদেশের লিড ৫০ রান। ওই ওভারে নতুন ব্যাটসম্যান নাঈম হাসানকেও এলবিডব্লিউ দেন আম্পায়ার। কিন্তু রিভিউ নিয়ে বেঁচে যান নাঈম।</p>', 1, 1, NULL, 1, '2024-10-23 02:30:06', '2024-10-24 02:42:06');
 
 -- --------------------------------------------------------
 
@@ -220,9 +256,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('5eDbRuNfxoNd8ypAyV8bcqNLHKFosOsx28ORoaxs', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNmdqZ0tXMHhYN2hqdk9GbmdaRGE2VVMzd1didXIyOG92R09pcEY0ZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1729563007),
-('61qkatiEXbGkKk7eZnmt25o62C4aCq5W4XAOi0Sy', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRlRnQWZla0NBMXpVZjNjRnBHZG9OWU5lNlBtTVE0RjVOVnlJVEwyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0L0FkZC1OZXdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1729584751),
-('FFDVGB3FxLY5TrOmVPOK5Nwcd7BBKBTrCrWlqdCo', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTTFJaHZXZlZGUXZUUDFJZWRMOXc0WU1lUk9wNk5VVmtLS09DN3RVeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3QvTmV3c19Qcm9qZWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1729135424);
+('i0hQP7Dg3IMRFouX8Ni7olvxfiE8rYHfm4qlVVqV', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQkJWaEFzUUhOelBmSzc1UWxndnBibVF6WG1yZWxIbDVzcVhCWXJndyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ6Imh0dHA6Ly9sb2NhbGhvc3QvQklaTkVXUyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1729768197);
 
 -- --------------------------------------------------------
 
@@ -257,7 +291,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastName`, `image`, `address`, `state`, `zipCode`, `number`, `twitter`, `facebook`, `linkedln`, `instagram`, `youtube`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jeshan', 'Khan', NULL, 'Silver Village', 'Sylhet', '3100', '01607906754', NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'CDzlTnOYWpxhADorM5yIV0YSJzfdedNiYmAe5uo26FiEL750LUZzkbxcsBkW', '2024-10-09 09:20:21', '2024-10-14 18:33:51');
+(1, 'Jeshan', 'Khan', NULL, 'Silver Village', 'Sylhet', '3100', '01607906754', NULL, NULL, NULL, NULL, NULL, 'jeshan@gmail.com', '2024-10-09 09:20:21', '$2y$12$VcOUiSgWNL4nLdJjAC1dQ.fRftMEpaOr5LnLaO3.hCp/Q0MOvQJfq', 'rF8ogFqXYfCiTZspJi8VDT1Y5AJw3vgXgNbW7AYhPvZu741zrXKytnjKUw7i', '2024-10-09 09:20:21', '2024-10-14 18:33:51');
 
 --
 -- Indexes for dumped tables
@@ -354,19 +388,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adds`
 --
 ALTER TABLE `adds`
-  MODIFY `add_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `add_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `breakingnews`
 --
 ALTER TABLE `breakingnews`
-  MODIFY `breakingnews_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `breakingnews_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -390,7 +424,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `news_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
