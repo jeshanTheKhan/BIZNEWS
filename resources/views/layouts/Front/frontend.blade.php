@@ -84,7 +84,7 @@
             </a>
         </div>
         <div class="col-lg-8 text-center text-lg-right">
-            <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
+            <a href="{{$add->add_link}}"><img class="img-fluid" src="{{asset('storage/back/media/add/'.$add->add_image)}}" width="200px;" height="auto" alt=""></a>
         </div>
     </div>
 </div>
@@ -168,11 +168,11 @@
             <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>{{$admin->email}}</p>
             <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Follow Us</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square" href="#"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="{{$admin->twitter}}"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="{{$admin->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="{{$admin->linkedln}}"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="{{$admin->instagram}}"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square" href="{{$admin->youtube}}"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
@@ -202,27 +202,18 @@
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categories</h5>
             <div class="m-n1">
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Entertainment</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Travel</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Lifestyle</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Politics</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Corporate</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Health</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Education</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Science</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Business</a>
-                <a href="" class="btn btn-sm btn-secondary m-1">Foods</a>
+                @php
+                    $category = App\Models\Category::all();
+                @endphp
+                 @foreach($category as $category)
+                <a href="" class="btn btn-sm btn-secondary m-1">
+                    @if(Session::get('lang') == 'bangla')
+                                {{ $category->bangla_cat_name }}
+                            @else 
+                            {{ $category->cat_name }}
+                @endif
+                </a>
+                @endforeach
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">

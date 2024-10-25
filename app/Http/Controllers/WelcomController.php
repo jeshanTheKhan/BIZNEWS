@@ -14,7 +14,9 @@ class WelcomController extends Controller
 {
     //
     public function index(){
-        $add = Adds::where('add_status', 1)->orderBy('add_id', 'desc')->take(1)->get();
+        $add = Adds::where('add_status', 1)
+           ->orderBy('add_id', 'desc')
+           ->first();
         $breakingnews = Breakingnews::where('status', 1)->orderBy('breakingnews_id', 'desc')->take(3)->get();
         $news=News::all();
         $cat=Category::all();

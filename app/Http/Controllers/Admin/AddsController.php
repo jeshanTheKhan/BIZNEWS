@@ -18,11 +18,10 @@ class AddsController extends Controller
     public function save(Request $req){
         $store=New Adds();
         $store->add_link=$req->link;
-        $slug=Str::slug($req->link);
 
         if ($req->file('main_thumbnail')) {
             $image = $req->file('main_thumbnail');
-            $image_ext = $slug.'-'.rand(00000, 99999). '.'.$image->getClientOriginalExtension();
+            $image_ext = chr(rand(65, 90)) .'-'.rand(00000, 99999). '.'.$image->getClientOriginalExtension();
             Image::make($image)->resize(300, 300)->save('storage/back/media/add/' . $image_ext);
             $store->add_image = $image_ext;
         }

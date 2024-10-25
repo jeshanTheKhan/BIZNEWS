@@ -26,9 +26,9 @@ class NewsController extends Controller
         $store->english_body=$req->englishbody;
         $store->bangla_body=$req->banglabody;
         $store->date=date('d-m-Y');
-        $store->hero=$request->on_sale;
-        $store->category=$request->best_rated;
-        $store->feather=$request->flast_sale;
+        $store->hero=$req->on_sale;
+        $store->category=$req->best_rated;
+        $store->feather=$req->flast_sale;
         $store->english_title_slug=Str::slug($req->eng_title);
 
         function make_slug($string) {
@@ -62,6 +62,11 @@ class NewsController extends Controller
     public function table(){
         $result=News::all();
         return view('Admin.News.table',compact('result'));
+    }
+    // Load View Page
+    public function view($id){
+        $result=News::find($id);
+        return view('Admin.News.view',compact('result'));
     }
     // Load Edit
     public function edit($id){

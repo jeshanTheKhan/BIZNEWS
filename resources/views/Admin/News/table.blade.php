@@ -96,7 +96,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('news.edit',$result->news_id) }}"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ route('news.view',$result->news_id) }}"><i class="fa fa-eye"></i></a>
+                        <a style="margin-left: 10px;" href="{{ route('news.edit',$result->news_id) }}"><i class="fa fa-pencil"></i></a>
                         <a href="" style="margin-left: 10px;"><i class="fa fa-trash"></i></a>
 
                     </td>

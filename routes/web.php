@@ -57,6 +57,7 @@ Route::get('/Delete-Adds/{id}', [AddsController::class, 'del'])->name('del.add')
 Route::get('/Add-News', [NewsController::class, 'index'])->name('add.news');
 Route::post('/Save-News', [NewsController::class, 'save'])->name('save.news');
 Route::get('/All-News', [NewsController::class, 'table'])->name('all.news');
+Route::get('/View-News/{id}', [NewsController::class, 'view'])->name('news.view');
 Route::get('/Edit-News/{id}', [NewsController::class, 'edit'])->name('news.edit');
 Route::post('/News-status/{id}', [NewsController::class, 'NewsStatus'])->name('updateNewsStatus');
 
