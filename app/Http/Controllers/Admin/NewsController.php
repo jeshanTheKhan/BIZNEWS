@@ -87,4 +87,6 @@ class NewsController extends Controller
         // Redirect back or to any other page with a success message
         return redirect()->back()->with('status', 'Status updated successfully!');
     }
+    // Single Details
+    
 }

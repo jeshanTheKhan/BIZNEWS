@@ -8,8 +8,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WelcomController::class, 'index'])->name('welcome');
-Route::get('/change-lan', [WelcomController::class, 'changeLan'])->name('change.lang');
+
 
 
 Route::get('/dashboard', function () {
@@ -60,6 +59,14 @@ Route::get('/All-News', [NewsController::class, 'table'])->name('all.news');
 Route::get('/View-News/{id}', [NewsController::class, 'view'])->name('news.view');
 Route::get('/Edit-News/{id}', [NewsController::class, 'edit'])->name('news.edit');
 Route::post('/News-status/{id}', [NewsController::class, 'NewsStatus'])->name('updateNewsStatus');
+
+
+
+// Frontend Related
+Route::get('/', [WelcomController::class, 'index'])->name('welcome');
+Route::get('/change-lan', [WelcomController::class, 'changeLan'])->name('change.lang');
+Route::get('/News Details/{id}', [WelcomController::class, 'details'])->name('news.details');
+
 
 });
 require __DIR__.'/auth.php';

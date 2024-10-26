@@ -27,7 +27,6 @@
                     <div class="overlay">
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="">
                                 @if(Session::get('lang') == 'bangla')
                                     {{$hero->Category->bangla_cat_name}}
                             @else 
@@ -37,7 +36,8 @@
                             </a>
                             <a class="text-white" href="">{{$hero->date}}</a>
                         </div>
-                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
+                                
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{{route('news.details',$hero->news_id)}}">
                             @if(Session::get('lang') == 'bangla')
                                     {{$hero->bangla_title}}
                             @else 

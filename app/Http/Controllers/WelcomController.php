@@ -35,4 +35,15 @@ class WelcomController extends Controller
         return redirect()->back();
         
     }
+    public function details($id){
+        $result=News::find($id);
+        $add = Adds::where('add_status', 1)
+           ->orderBy('add_id', 'desc')
+           ->first();
+        $breakingnews = Breakingnews::where('status', 1)->orderBy('breakingnews_id', 'desc')->take(3)->get();
+        $news=News::all();
+        $cat=Category::all();
+        $admin=User::all()->first();
+        return view('Front.Single_news',compact('result','add','breakingnews','news','cat','admin'));
+    }
 }
